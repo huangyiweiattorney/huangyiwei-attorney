@@ -33,14 +33,21 @@ document.addEventListener("DOMContentLoaded", () => {
     navBackdrop.addEventListener("click", closeMenu);
   }
 
-  // Close menu after tapping a link
   document.querySelectorAll(".navbar a").forEach(link => {
     link.addEventListener("click", closeMenu);
   });
 
-  // Close menu on Escape
   document.addEventListener("keydown", (e) => {
     if(e.key === "Escape") closeMenu();
+  });
+
+  // ---- Highlight current page in nav ----
+  const currentPath = window.location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll(".navbar ul a").forEach(link => {
+    const linkPath = link.getAttribute("href").split("/").pop();
+    if(linkPath === currentPath){
+      link.classList.add("active");
+    }
   });
 
   // ---- Navbar background on scroll ----
@@ -55,6 +62,10 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", updateNavbarState, { passive:true });
 
   // ---- Scroll-triggered fade/rise animation ----
+  const revealTargets = document.querySelectorAll(
+    ".card, .consult-card, .profile-image, .preview-card, .contact-card"
+  );
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if(entry.isIntersecting){
@@ -62,9 +73,15 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
 
-  document.querySelectorAll(".card, .consult-card, .profile-image")
-    .forEach(el => observer.observe(el));
+  revealTargets.forEach(el => observer.observe(el));
+
+  // Stagger cards within the same grid for a smoother cascade
+  document.querySelectorAll(".cards, .consultation-grid, .preview-grid").forEach(grid => {
+    [...grid.children].forEach((child, i) => {
+      child.style.transitionDelay = `${i * 90}ms`;
+    });
+  });
 
 });
