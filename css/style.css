@@ -233,28 +233,28 @@ button{
   justify-content:center;
   text-align:center;
   position:relative;
+  overflow:hidden;
 
   background:
     linear-gradient(
-      160deg,
-      rgba(8,23,41,.80) 0%,
-      rgba(11,35,66,.62) 45%,
-      rgba(8,23,41,.86) 100%
+      180deg,
+      rgba(8,23,41,.7) 0%,
+      rgba(8,23,41,.46) 40%,
+      rgba(8,23,41,.78) 100%
     ),
     url('../assets/huangyiwei-background.jpg');
 
   background-size:cover;
-  background-position:center 30%;
+  background-position:center top;
   background-repeat:no-repeat;
   color:white;
-  clip-path:polygon(0 0, 100% 0, 100% 96%, 0 100%);
 }
 
 .hero::before{
   content:"";
   position:absolute;
   inset:0;
-  background:radial-gradient(circle at 78% 18%, rgba(199,165,101,.16), transparent 50%);
+  background:radial-gradient(circle at 78% 12%, rgba(199,165,101,.2), transparent 55%);
   pointer-events:none;
 }
 
@@ -263,7 +263,19 @@ button{
   position:absolute;
   inset:0;
   pointer-events:none;
-  box-shadow:inset 0 0 160px rgba(0,0,0,.45);
+  box-shadow:inset 0 0 160px rgba(0,0,0,.4);
+}
+
+.hero-wave, .page-header-wave{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-1px;
+  width:100%;
+  height:60px;
+  z-index:2;
+  display:block;
+  line-height:0;
 }
 
 .hero-content{
@@ -272,6 +284,19 @@ button{
   padding:0 24px;
   position:relative;
   z-index:1;
+}
+
+.hero h1, .hero h2{
+  text-shadow:0 2px 28px rgba(0,0,0,.4);
+}
+
+.hero-wave path, .page-header-wave path{
+  fill:var(--cream);
+}
+
+#about .hero-wave path,
+#about .page-header-wave path{
+  fill:var(--white);
 }
 
 .hero-eyebrow{
@@ -329,7 +354,7 @@ button{
 
 .scroll-cue{
   position:absolute;
-  bottom:36px;
+  bottom:64px;
   left:50%;
   transform:translateX(-50%);
   width:1px;
@@ -444,35 +469,34 @@ button{
    ========================================================= */
 
 .page-header{
-  min-height:48vh;
+  min-height:46vh;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
   position:relative;
-  padding:160px 24px 110px;
+  padding:160px 24px 90px;
   overflow:hidden;
 
   background:
     linear-gradient(
-      150deg,
-      rgba(8,23,41,.86) 0%,
-      rgba(11,35,66,.68) 50%,
-      rgba(8,23,41,.88) 100%
+      180deg,
+      rgba(8,23,41,.74) 0%,
+      rgba(8,23,41,.42) 45%,
+      rgba(8,23,41,.8) 100%
     ),
     url('../assets/huangyiwei-background.jpg');
   background-size:cover;
-  background-position:center 35%;
+  background-position:center top;
   background-repeat:no-repeat;
   color:white;
-  clip-path:polygon(0 0, 100% 0, 100% 88%, 0 100%);
 }
 
 .page-header::before{
   content:"";
   position:absolute;
   inset:0;
-  background:radial-gradient(circle at 80% 15%, rgba(199,165,101,.18), transparent 50%);
+  background:radial-gradient(circle at 80% 10%, rgba(199,165,101,.22), transparent 55%);
   pointer-events:none;
 }
 
@@ -493,6 +517,7 @@ button{
   font-size:48px;
   font-weight:700;
   letter-spacing:.03em;
+  text-shadow:0 2px 24px rgba(0,0,0,.35);
 }
 
 .page-header p{
@@ -545,12 +570,14 @@ button{
 
 #about{
   padding:80px 40px 140px;
-  background:var(--white);
+  background:
+    radial-gradient(circle, rgba(11,35,66,.05) 1px, transparent 1px) 0 0/22px 22px,
+    var(--white);
 }
 
 #about .container{
   display:grid;
-  grid-template-columns:420px 1fr;
+  grid-template-columns:500px 1fr;
   gap:70px;
   align-items:start;
 }
@@ -605,6 +632,18 @@ button{
   font-weight:700;
 }
 
+.bio-lead{
+  font-family:var(--serif);
+  font-size:20px;
+  font-weight:600;
+  color:var(--navy);
+  line-height:1.65;
+  border-left:3px solid var(--gold);
+  padding-left:24px;
+  margin-bottom:28px;
+  max-width:58ch;
+}
+
 #about .bio p{
   color:var(--ink-soft);
   font-size:16.5px;
@@ -652,7 +691,9 @@ button{
 #services{
   padding:120px 40px 140px;
   text-align:center;
-  background:var(--cream);
+  background:
+    radial-gradient(circle, rgba(11,35,66,.05) 1px, transparent 1px) 0 0/22px 22px,
+    var(--cream);
 }
 
 .section-head{
@@ -808,7 +849,9 @@ button{
 #contact{
   padding:120px 40px 140px;
   text-align:center;
-  background:var(--cream);
+  background:
+    radial-gradient(circle, rgba(11,35,66,.05) 1px, transparent 1px) 0 0/22px 22px,
+    var(--cream);
 }
 
 #contact .eyebrow{
@@ -886,6 +929,13 @@ footer{
 /* =========================================================
    MOBILE
    ========================================================= */
+
+@media(max-width:1180px){
+  #about .container{
+    grid-template-columns:380px 1fr;
+    gap:50px;
+  }
+}
 
 @media(max-width:860px){
   #about .container{
@@ -972,7 +1022,6 @@ footer{
   .page-header{
     min-height:36vh;
     padding:140px 24px 80px;
-    clip-path:polygon(0 0, 100% 0, 100% 94%, 0 100%);
   }
 
   .page-header h1{
