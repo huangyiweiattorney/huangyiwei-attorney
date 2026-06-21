@@ -89,7 +89,7 @@ button{
 .eyebrow{
   display:inline-flex;
   align-items:center;
-  gap:10px;
+  gap:12px;
   font-family:var(--serif);
   font-size:14px;
   letter-spacing:.28em;
@@ -98,9 +98,11 @@ button{
 }
 .eyebrow::before{
   content:"";
-  width:28px;
-  height:1px;
+  width:8px;
+  height:8px;
+  border-radius:50%;
   background:var(--gold);
+  flex-shrink:0;
 }
 
 /* =========================================================
@@ -116,13 +118,13 @@ button{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:14px 60px;
+  padding:10px 60px;
   z-index:1000;
   transition:padding .35s var(--ease), background .35s var(--ease), box-shadow .35s var(--ease);
 }
 
 .navbar.scrolled{
-  padding:10px 60px;
+  padding:8px 60px;
   background:rgba(8,23,41,.97);
   box-shadow:0 4px 24px rgba(0,0,0,.25);
 }
@@ -134,13 +136,17 @@ button{
 }
 
 .logo img{
-  height:42px;
+  height:58px;
   width:auto;
-  transition:height .35s var(--ease);
+  transition:height .35s var(--ease), transform .35s var(--ease);
+}
+
+.logo:hover img{
+  transform:scale(1.05);
 }
 
 .navbar.scrolled .logo img{
-  height:34px;
+  height:44px;
 }
 
 .navbar ul{
@@ -230,17 +236,26 @@ button{
 
   background:
     linear-gradient(
-      180deg,
-      rgba(8,23,41,.78) 0%,
-      rgba(11,35,66,.68) 55%,
-      rgba(8,23,41,.85) 100%
+      160deg,
+      rgba(8,23,41,.80) 0%,
+      rgba(11,35,66,.62) 45%,
+      rgba(8,23,41,.86) 100%
     ),
     url('../assets/huangyiwei-background.jpg');
 
   background-size:cover;
-  background-position:center;
+  background-position:center 30%;
   background-repeat:no-repeat;
   color:white;
+  clip-path:polygon(0 0, 100% 0, 100% 96%, 0 100%);
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 78% 18%, rgba(199,165,101,.16), transparent 50%);
+  pointer-events:none;
 }
 
 .hero::after{
@@ -361,10 +376,10 @@ button{
 .preview-card{
   background:var(--cream);
   border:1px solid var(--line);
-  border-radius:8px;
+  border-radius:6px 22px 6px 22px;
   padding:40px 32px;
   text-align:left;
-  transition:transform .45s var(--ease), box-shadow .45s var(--ease), border-color .4s;
+  transition:transform .45s var(--ease), box-shadow .45s var(--ease), border-color .4s, border-radius .45s var(--ease);
   opacity:0;
   transform:translateY(24px);
 }
@@ -378,6 +393,7 @@ button{
   transform:translateY(-6px);
   box-shadow:0 20px 40px rgba(11,35,66,.1);
   border-color:var(--gold-light);
+  border-radius:22px 6px 22px 6px;
 }
 
 .preview-card .card-index{
@@ -428,25 +444,36 @@ button{
    ========================================================= */
 
 .page-header{
-  min-height:42vh;
+  min-height:48vh;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
   position:relative;
-  padding:160px 24px 70px;
+  padding:160px 24px 110px;
+  overflow:hidden;
 
   background:
     linear-gradient(
-      180deg,
-      rgba(8,23,41,.82) 0%,
-      rgba(11,35,66,.74) 100%
+      150deg,
+      rgba(8,23,41,.86) 0%,
+      rgba(11,35,66,.68) 50%,
+      rgba(8,23,41,.88) 100%
     ),
     url('../assets/huangyiwei-background.jpg');
   background-size:cover;
-  background-position:center;
+  background-position:center 35%;
   background-repeat:no-repeat;
   color:white;
+  clip-path:polygon(0 0, 100% 0, 100% 88%, 0 100%);
+}
+
+.page-header::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 80% 15%, rgba(199,165,101,.18), transparent 50%);
+  pointer-events:none;
 }
 
 .page-header-content{
@@ -517,25 +544,52 @@ button{
    ========================================================= */
 
 #about{
-  padding:120px 40px 140px;
+  padding:80px 40px 140px;
   background:var(--white);
 }
 
 #about .container{
   display:grid;
-  grid-template-columns:360px 1fr;
-  gap:60px;
+  grid-template-columns:420px 1fr;
+  gap:70px;
   align-items:start;
+}
+
+.profile-frame{
+  position:relative;
+  position:sticky;
+  top:120px;
+}
+
+.profile-frame::before{
+  content:"";
+  position:absolute;
+  top:22px;
+  left:22px;
+  right:-22px;
+  bottom:-22px;
+  border:2px solid var(--gold);
+  border-radius:6px;
+  z-index:0;
+  opacity:0;
+  transform:translate(-10px,10px);
+  transition:opacity .8s var(--ease-soft) .15s, transform .8s var(--ease-soft) .15s;
+}
+
+.profile-frame.show::before{
+  opacity:1;
+  transform:translate(0,0);
 }
 
 .profile-image{
   border-radius:6px;
-  box-shadow:0 20px 50px rgba(11,35,66,.18);
+  box-shadow:0 24px 60px rgba(11,35,66,.22);
   opacity:0;
   transform:translateY(24px);
   transition:opacity .8s var(--ease-soft), transform .8s var(--ease-soft);
-  position:sticky;
-  top:120px;
+  position:relative;
+  z-index:1;
+  width:100%;
 }
 
 .profile-image.show{
@@ -626,10 +680,10 @@ button{
 .card{
   background:white;
   padding:44px 36px;
-  border-radius:8px;
+  border-radius:6px 22px 6px 22px;
   border:1px solid var(--line);
   box-shadow:0 8px 24px rgba(11,35,66,.06);
-  transition:transform .45s var(--ease), box-shadow .45s var(--ease), border-color .4s;
+  transition:transform .45s var(--ease), box-shadow .45s var(--ease), border-color .4s, border-radius .45s var(--ease);
   text-align:left;
   opacity:0;
   transform:translateY(24px);
@@ -644,6 +698,7 @@ button{
   transform:translateY(-6px);
   box-shadow:0 20px 40px rgba(11,35,66,.12);
   border-color:var(--gold-light);
+  border-radius:22px 6px 22px 6px;
 }
 
 .card-index{
@@ -710,8 +765,8 @@ button{
   background:rgba(255,255,255,.04);
   border:1px solid rgba(255,255,255,.12);
   padding:44px 32px;
-  border-radius:8px;
-  transition:transform .45s var(--ease), background .4s var(--ease), border-color .4s;
+  border-radius:22px 6px 22px 6px;
+  transition:transform .45s var(--ease), background .4s var(--ease), border-color .4s, border-radius .45s var(--ease);
   opacity:0;
   transform:translateY(24px);
 }
@@ -725,6 +780,7 @@ button{
   transform:translateY(-6px);
   background:rgba(255,255,255,.07);
   border-color:var(--gold-light);
+  border-radius:6px 22px 6px 22px;
 }
 
 .consult-card h3{
@@ -764,7 +820,7 @@ button{
   margin:0 auto;
   background:white;
   border:1px solid var(--line);
-  border-radius:8px;
+  border-radius:6px 28px 6px 28px;
   padding:50px 48px;
   box-shadow:0 8px 24px rgba(11,35,66,.06);
   opacity:0;
@@ -835,10 +891,16 @@ footer{
   #about .container{
     grid-template-columns:1fr;
   }
-  .profile-image{
-    max-width:280px;
+  .profile-frame{
+    max-width:320px;
     margin:0 auto;
     position:static;
+  }
+  .profile-frame::before{
+    top:16px;
+    left:16px;
+    right:-16px;
+    bottom:-16px;
   }
 }
 
@@ -908,8 +970,9 @@ footer{
   }
 
   .page-header{
-    min-height:32vh;
-    padding:140px 24px 56px;
+    min-height:36vh;
+    padding:140px 24px 80px;
+    clip-path:polygon(0 0, 100% 0, 100% 94%, 0 100%);
   }
 
   .page-header h1{
