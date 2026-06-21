@@ -121,6 +121,7 @@ button{
   padding:10px 60px;
   z-index:1000;
   transition:padding .35s var(--ease), background .35s var(--ease), box-shadow .35s var(--ease);
+  border-bottom:1px solid rgba(199,165,101,.18);
 }
 
 .navbar.scrolled{
@@ -136,8 +137,9 @@ button{
 }
 
 .logo img{
-  height:58px;
+  height:72px;
   width:auto;
+  border-radius:6px;
   transition:height .35s var(--ease), transform .35s var(--ease);
 }
 
@@ -146,7 +148,7 @@ button{
 }
 
 .navbar.scrolled .logo img{
-  height:44px;
+  height:54px;
 }
 
 .navbar ul{
@@ -256,6 +258,20 @@ button{
   inset:0;
   background:radial-gradient(circle at 78% 12%, rgba(199,165,101,.2), transparent 55%);
   pointer-events:none;
+}
+
+.hero-pattern{
+  position:absolute;
+  inset:0;
+  background-image:repeating-linear-gradient(
+    115deg,
+    rgba(199,165,101,.05) 0px,
+    rgba(199,165,101,.05) 1px,
+    transparent 1px,
+    transparent 64px
+  );
+  pointer-events:none;
+  z-index:0;
 }
 
 .hero::after{
@@ -477,32 +493,51 @@ button{
   position:relative;
   padding:160px 24px 90px;
   overflow:hidden;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(8,23,41,.74) 0%,
-      rgba(8,23,41,.42) 45%,
-      rgba(8,23,41,.8) 100%
-    ),
-    url('../assets/huangyiwei-background.jpg');
-  background-size:cover;
-  background-position:center top;
-  background-repeat:no-repeat;
+  background:var(--navy-deep);
   color:white;
+}
+
+.page-header-bg{
+  position:absolute;
+  inset:-20px;
+  background-image:url('../assets/huangyiwei-background.jpg');
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  filter:blur(7px) saturate(0.85) brightness(0.55);
+  transform:scale(1.06);
+  z-index:0;
 }
 
 .page-header::before{
   content:"";
   position:absolute;
   inset:0;
-  background:radial-gradient(circle at 80% 10%, rgba(199,165,101,.22), transparent 55%);
+  background:
+    linear-gradient(135deg, rgba(11,35,66,.82) 0%, rgba(8,23,41,.6) 50%, rgba(11,35,66,.86) 100%),
+    radial-gradient(circle at 82% 8%, rgba(199,165,101,.28), transparent 55%);
+  z-index:1;
+  pointer-events:none;
+}
+
+.page-header::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:repeating-linear-gradient(
+    115deg,
+    rgba(199,165,101,.05) 0px,
+    rgba(199,165,101,.05) 1px,
+    transparent 1px,
+    transparent 64px
+  );
+  z-index:1;
   pointer-events:none;
 }
 
 .page-header-content{
   position:relative;
-  z-index:1;
+  z-index:2;
   opacity:0;
   animation:fadeUp .8s var(--ease-soft) .1s forwards;
 }
@@ -517,7 +552,7 @@ button{
   font-size:48px;
   font-weight:700;
   letter-spacing:.03em;
-  text-shadow:0 2px 24px rgba(0,0,0,.35);
+  text-shadow:0 2px 24px rgba(0,0,0,.45);
 }
 
 .page-header p{
@@ -573,6 +608,23 @@ button{
   background:
     radial-gradient(circle, rgba(11,35,66,.05) 1px, transparent 1px) 0 0/22px 22px,
     var(--white);
+  position:relative;
+  overflow:hidden;
+}
+
+#about::before{
+  content:attr(data-mark);
+  position:absolute;
+  top:60px;
+  right:-40px;
+  font-family:var(--serif);
+  font-size:420px;
+  font-weight:700;
+  color:var(--navy);
+  opacity:.03;
+  line-height:1;
+  pointer-events:none;
+  z-index:0;
 }
 
 #about .container{
@@ -580,6 +632,8 @@ button{
   grid-template-columns:500px 1fr;
   gap:70px;
   align-items:start;
+  position:relative;
+  z-index:1;
 }
 
 .profile-frame{
@@ -664,9 +718,15 @@ button{
 .credentials li{
   color:var(--ink-soft);
   font-size:16px;
-  padding:10px 0 10px 28px;
+  padding:14px 0 14px 28px;
   position:relative;
   border-bottom:1px solid var(--line);
+  transition:padding-left .3s var(--ease), color .3s var(--ease);
+}
+
+.credentials li:hover{
+  padding-left:34px;
+  color:var(--navy);
 }
 
 .credentials li:last-child{
@@ -677,11 +737,16 @@ button{
   content:"";
   position:absolute;
   left:0;
-  top:19px;
-  width:8px;
-  height:8px;
+  top:23px;
+  width:7px;
+  height:7px;
   border-radius:50%;
   background:var(--gold);
+  transition:transform .3s var(--ease);
+}
+
+.credentials li:hover::before{
+  transform:scale(1.3);
 }
 
 /* =========================================================
