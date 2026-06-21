@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ---- Scroll-triggered fade/rise animation ----
   const revealTargets = document.querySelectorAll(
-    ".card, .consult-card, .profile-image, .preview-card, .contact-card"
+    ".card, .consult-card, .profile-image, .profile-frame, .preview-card, .contact-card"
   );
 
   const observer = new IntersectionObserver((entries) => {
