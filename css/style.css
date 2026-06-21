@@ -504,8 +504,8 @@ button{
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
-  filter:blur(7px) saturate(0.85) brightness(0.55);
-  transform:scale(1.06);
+  filter:blur(2px) saturate(0.95) brightness(0.7);
+  transform:scale(1.02);
   z-index:0;
 }
 
@@ -514,7 +514,7 @@ button{
   position:absolute;
   inset:0;
   background:
-    linear-gradient(135deg, rgba(11,35,66,.82) 0%, rgba(8,23,41,.6) 50%, rgba(11,35,66,.86) 100%),
+    linear-gradient(135deg, rgba(11,35,66,.62) 0%, rgba(8,23,41,.4) 50%, rgba(11,35,66,.66) 100%),
     radial-gradient(circle at 82% 8%, rgba(199,165,101,.28), transparent 55%);
   z-index:1;
   pointer-events:none;
