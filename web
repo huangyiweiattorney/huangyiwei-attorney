@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>黃義偉律師｜企業法律顧問・民刑事案件・家事案件</title>
+
+<meta name="description"
+content="黃義偉律師提供企業法律顧問、民事案件、刑事辯護及家事案件法律服務，以專業與誠信守護您的權益。">
+
+<meta property="og:title"
+content="黃義偉律師｜Huang YiWei Attorney">
+
+<meta property="og:description"
+content="值得託付的法律夥伴">
+
+<meta property="og:type"
+content="website">
+
+<meta property="og:image"
+content="assets/lawyer-photo.jpg">
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+
+HY
+
+</div>
+
+<ul>
+
+<li><a href="#about">關於</a></li>
+
+<li><a href="#services">服務項目</a></li>
+
+<li><a href="#consultation">預約諮詢</a></li>
+
+<li><a href="#contact">聯絡資訊</a></li>
+
+<li><a href="en.html">EN</a></li>
+
+</ul>
+
+</nav>
+
+<header class="hero">
+
+<div class="hero-content">
+
+<h1>黃義偉 律師</h1>
+
+<h2>Huang YiWei Attorney</h2>
+
+<p>值得託付的法律夥伴</p>
+
+<div class="hero-buttons">
+
+<a href="#consultation"
+class="btn-primary">
+立即預約
+</a>
+
+<a href="#services"
+class="btn-secondary">
+服務項目
+</a>
+
+</div>
+
+</div>
+
+</header>
+
+<section id="about">
+
+<div class="container">
+
+<img
+src="assets/lawyer-photo.jpg"
+alt="黃義偉律師"
+class="profile-image">
+
+<div>
+
+<h2>關於黃義偉律師</h2>
+
+<p>
+
+黃義偉律師長期專注於企業法律顧問、
+民事案件、刑事辯護及家事案件。
+
+秉持專業、誠信與同理心，
+陪伴當事人面對每一項重要法律決定。
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="services">
+
+<h2>法律服務</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>企業法律顧問</h3>
+
+<p>
+企業法務規劃、
+契約審閱、
+法律風險管理
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>民事案件</h3>
+
+<p>
+債務糾紛、
+損害賠償、
+契約爭議
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>刑事辯護</h3>
+
+<p>
+偵查程序、
+羈押庭、
+審判辯護
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>家事案件</h3>
+
+<p>
+離婚、
+監護權、
+遺產繼承
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="consultation">
+
+<h2>預約法律諮詢</h2>
+
+<div class="consultation-grid">
+
+<div class="consult-card">
+
+<h3>免費電話初談</h3>
+
+<p>30分鐘案件初步評估</p>
+
+<a
+href="PHONE_FORM_URL"
+target="_blank"
+class="btn-primary">
+
+立即預約
+
+</a>
+
+</div>
+
+<div class="consult-card">
+
+<h3>付費視訊法律諮詢</h3>
+
+<p>Google Meet 線上法律諮詢</p>
+
+<a
+href="VIDEO_FORM_URL"
+target="_blank"
+class="btn-primary">
+
+立即預約
+
+</a>
+
+</div>
+
+<div class="consult-card">
+
+<h3>預約辦公室面談</h3>
+
+<p>眾勤律師事務所</p>
+
+<a
+href="OFFICE_FORM_URL"
+target="_blank"
+class="btn-primary">
+
+立即預約
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2>聯絡資訊</h2>
+
+<p>
+
+黃義偉 律師
+
+</p>
+
+<p>
+
+Mobile：
+0952-886-437
+
+</p>
+
+<p>
+
+Email：
+HuangYiWei.Attorney@gmail.com
+
+</p>
+
+<p>
+
+執業機構｜
+眾勤律師事務所
+
+</p>
+
+<p>
+
+104475 台北市南京東路二段111號12樓
+
+</p>
+
+<p>
+
+T：(02)2508-0830
+
+</p>
+
+<p>
+
+F：(02)2508-0826
+
+</p>
+
+</section>
+
+<footer>
+
+<p>
+
+© 2026 Huang YiWei Attorney
+
+</p>
+
+</footer>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>
