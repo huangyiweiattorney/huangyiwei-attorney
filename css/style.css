@@ -936,9 +936,9 @@ button{
 }
 
 .contact-firm-photo{
-  width:calc(100% + 96px);
-  margin:20px -48px;
-  height:200px;
+  width:calc(100% + 48px);
+  margin:20px -24px;
+  height:130px;
   object-fit:cover;
   object-position:center;
   display:block;
