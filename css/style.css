@@ -1003,6 +1003,15 @@ button{
 .contact-row a:hover{
   color:var(--gold);
 }
+.address-info{
+  text-align: right;
+}
+
+.appointment-note{
+  display: block;
+  text-align: right;
+  font-size: 14px;
+}
 
 /* =========================================================
    FOOTER
