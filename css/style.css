@@ -961,6 +961,14 @@ button{
   margin-bottom:24px;
 }
 
+.lawfirm-name{
+  font-family:var(--serif);
+  font-size:24px;
+  color:var(--navy);
+  font-weight:700;
+  margin-bottom:24px;
+}
+
 .contact-row{
   display:flex;
   justify-content:space-between;
