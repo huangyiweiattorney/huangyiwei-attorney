@@ -966,9 +966,13 @@ button{
   font-size:24px;
   color:var(--navy);
   font-weight:700;
+   
    margin-top: 40px;
   margin-bottom:1px;
-   text-align:right;
+
+  width: 100%;
+  display: block;
+  text-align: right;
 }
 
 .contact-row{
