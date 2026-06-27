@@ -967,6 +967,7 @@ button{
   color:var(--navy);
   font-weight:700;
   margin-bottom:24px;
+   text-align: center;
 }
 
 .contact-row{
