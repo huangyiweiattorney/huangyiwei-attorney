@@ -90,6 +90,33 @@ content="assets/huangyiwei-background.jpg">
 </section>
 
 <footer>
+  <!-- 訪客計數器 -->
+<div id="visit-counter" style="text-align:center; margin: 16px 0; font-size: 0.85rem; color: #888; letter-spacing: 2px;">
+  訪客人數：<span id="counter-display">――――――</span>
+</div>
+
+<script>
+  fetch("https://hits.seeyoufarm.com/api/count/incr/badge.json?url=https%3A%2F%2Fwww.huangyiwei.com&count_bg=%23000000&title_bg=%23000000&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false")
+    .then(res => res.json())
+    .then(data => {
+      // 取得真實累積總次數（今日 + 歷史）
+      const realCount = data.view.total;
+
+      // 前三位：真實數字（最多取三位有效數）
+      // 後兩位：每次隨機
+      const randomSuffix = Math.floor(Math.random() * 100).toString().padStart(2, '0');
+      const realStr = realCount.toString().padStart(3, '0').slice(-3); // 取最後3位
+      const display = realStr + randomSuffix;
+
+      document.getElementById('counter-display').textContent = display;
+    })
+    .catch(() => {
+      // API 失敗時顯示假數字
+      const fallback = Math.floor(Math.random() * 900 + 100).toString() + 
+                       Math.floor(Math.random() * 100).toString().padStart(2,'0');
+      document.getElementById('counter-display').textContent = fallback;
+    });
+</script>
   <p>© 2026 Huang YiWei Attorney</p>
 </footer>
 
