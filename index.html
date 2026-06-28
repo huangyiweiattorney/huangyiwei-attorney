@@ -96,40 +96,30 @@ content="assets/huangyiwei-background.jpg">
 </div>
 
 <script>
-  (function() {
-    // 取得台灣今天日期 (UTC+8)
-    function getTaiwanDateStr() {
-      const now = new Date();
-      const taiwanTime = new Date(now.getTime() + 8 * 60 * 60 * 1000);
-      return taiwanTime.toISOString().slice(0, 10); // "2026-06-28"
-    }
+(function() {
+  function getTaiwanDateStr() {
+    const now = new Date();
+    const taiwanTime = new Date(now.getTime() + 8 * 60 * 60 * 1000);
+    return taiwanTime.toISOString().slice(0, 10);
+  }
 
-    const today = getTaiwanDateStr();
-    const storageKey = 'visit_count';
-    const dateKey = 'visit_date';
+  const today = getTaiwanDateStr();
+  const namespace = 'huangyiwei-attorney';
+  const key = 'visits-' + today;
 
-    // 讀取 localStorage
-    let storedDate = localStorage.getItem(dateKey);
-    let count = parseInt(localStorage.getItem(storageKey)) || 0;
-
-    // 如果日期不同（新的一天台灣時間），重置
-    if (storedDate !== today) {
-      count = 0;
-      localStorage.setItem(dateKey, today);
-    }
-
-    // 每次訪問 +1
-    count += 1;
-    localStorage.setItem(storageKey, count);
-
-    // 前三碼：真實累積（當天），padStart 補零
-    const realStr = count.toString().padStart(3, '0').slice(-3);
-
-    // 後兩碼：隨機（每次載入不同）
-    const randomSuffix = Math.floor(Math.random() * 100).toString().padStart(2, '0');
-
-    document.getElementById('counter-display').textContent = realStr + randomSuffix;
-  })();
+  fetch('https://api.countapi.xyz/hit/' + namespace + '/' + key)
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      const realCount = data.value || 1;
+      const realStr = realCount.toString().padStart(3, '0').slice(-3);
+      const randomSuffix = Math.floor(Math.random() * 100).toString().padStart(2, '0');
+      document.getElementById('counter-display').textContent = realStr + randomSuffix;
+    })
+    .catch(function() {
+      document.getElementById('counter-display').textContent = '00147';
+    });
+})();
+</script>
 </script>
   <p>© 2026 Huang YiWei Attorney</p>
 </footer>
