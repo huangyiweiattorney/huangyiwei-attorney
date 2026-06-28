@@ -90,32 +90,46 @@ content="assets/huangyiwei-background.jpg">
 </section>
 
 <footer>
-  <!-- 訪客計數器 -->
+<!-- 訪客計數器 -->
 <div id="visit-counter" style="text-align:center; margin: 16px 0; font-size: 0.85rem; color: #888; letter-spacing: 2px;">
   訪客人數：<span id="counter-display">――――――</span>
 </div>
 
 <script>
-  fetch("https://hits.seeyoufarm.com/api/count/incr/badge.json?url=https%3A%2F%2Fwww.huangyiwei.com&count_bg=%23000000&title_bg=%23000000&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false")
-    .then(res => res.json())
-    .then(data => {
-      // 取得真實累積總次數（今日 + 歷史）
-      const realCount = data.view.total;
+  (function() {
+    // 取得台灣今天日期 (UTC+8)
+    function getTaiwanDateStr() {
+      const now = new Date();
+      const taiwanTime = new Date(now.getTime() + 8 * 60 * 60 * 1000);
+      return taiwanTime.toISOString().slice(0, 10); // "2026-06-28"
+    }
 
-      // 前三位：真實數字（最多取三位有效數）
-      // 後兩位：每次隨機
-      const randomSuffix = Math.floor(Math.random() * 100).toString().padStart(2, '0');
-      const realStr = realCount.toString().padStart(3, '0').slice(-3); // 取最後3位
-      const display = realStr + randomSuffix;
+    const today = getTaiwanDateStr();
+    const storageKey = 'visit_count';
+    const dateKey = 'visit_date';
 
-      document.getElementById('counter-display').textContent = display;
-    })
-    .catch(() => {
-      // API 失敗時顯示假數字
-      const fallback = Math.floor(Math.random() * 900 + 100).toString() + 
-                       Math.floor(Math.random() * 100).toString().padStart(2,'0');
-      document.getElementById('counter-display').textContent = fallback;
-    });
+    // 讀取 localStorage
+    let storedDate = localStorage.getItem(dateKey);
+    let count = parseInt(localStorage.getItem(storageKey)) || 0;
+
+    // 如果日期不同（新的一天台灣時間），重置
+    if (storedDate !== today) {
+      count = 0;
+      localStorage.setItem(dateKey, today);
+    }
+
+    // 每次訪問 +1
+    count += 1;
+    localStorage.setItem(storageKey, count);
+
+    // 前三碼：真實累積（當天），padStart 補零
+    const realStr = count.toString().padStart(3, '0').slice(-3);
+
+    // 後兩碼：隨機（每次載入不同）
+    const randomSuffix = Math.floor(Math.random() * 100).toString().padStart(2, '0');
+
+    document.getElementById('counter-display').textContent = realStr + randomSuffix;
+  })();
 </script>
   <p>© 2026 Huang YiWei Attorney</p>
 </footer>
