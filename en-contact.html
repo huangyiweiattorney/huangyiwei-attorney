@@ -5,22 +5,31 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact | Huang YiWei Attorney</title>
-<meta name="description"
-content="Contact information for Attorney Huang Yi-Wei — Chung Chin Law Firm's address, phone number, and email.">
+<meta name="description" content="Contact information for Attorney Huang Yi-Wei — Chung Chin Law Firm's address, phone number, and email.">
 <meta property="og:title" content="Contact | Huang YiWei Attorney">
 <meta property="og:type" content="website">
 <meta property="og:image" content="assets/huangyiwei-background.jpg">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
 <nav class="navbar">
-  <a href="en.html" class="logo"><img src="assets/logo.png" alt="Huang YiWei Attorney"></a>
+  <a href="index.html" class="logo"><img src="assets/logo.png" alt="Huang YiWei Attorney"></a>
   <ul id="navMenu">
     <li><a href="en-about.html">About</a></li>
     <li><a href="en-services.html">Services</a></li>
     <li><a href="en-consultation.html">Consultation</a></li>
     <li><a href="en-contact.html">Contact</a></li>
-    <li><a href="contact.html">中文</a></li>
+    <!-- Language Dropdown -->
+    <li class="lang-dropdown">
+        <button class="lang-btn">Language ▼</button>
+        <div class="lang-content">
+            <a href="tw-contact.html">繁體中文</a>
+            <a href="en-contact.html">English</a>
+            <a href="jp-contact.html">日本語</a>
+            <a href="kr-contact.html">한국어</a>
+        </div>
+    </li>
   </ul>
   <button class="nav-toggle" id="navToggle" aria-label="Open Menu" aria-expanded="false" aria-controls="navMenu">
     <span></span>
@@ -28,7 +37,9 @@ content="Contact information for Attorney Huang Yi-Wei — Chung Chin Law Firm's
     <span></span>
   </button>
 </nav>
+
 <div class="nav-backdrop" id="navBackdrop"></div>
+
 <header class="page-header">
   <div class="page-header-bg"></div>
   <div class="page-header-content">
@@ -41,6 +52,7 @@ content="Contact information for Attorney Huang Yi-Wei — Chung Chin Law Firm's
     <path d="M0,32 C240,60 480,4 720,24 C960,44 1200,8 1440,30 L1440,60 L0,60 Z"></path>
   </svg>
 </header>
+
 <section id="contact">
   <div class="contact-card">
     <p class="contact-name">Attorney Huang Yi-Wei</p>
@@ -49,7 +61,7 @@ content="Contact information for Attorney Huang Yi-Wei — Chung Chin Law Firm's
       <a href="mailto:HuangYiWei.Attorney@gmail.com">iyowea714@gmail.com</a>
     </div>
     <div class="contact-row">
-<p class="lawfirm-name">Chung Chin Law Firm</p>
+      <p class="lawfirm-name">Chung Chin Law Firm</p>
     </div>
     <div class="contact-row">
       <span>Phone</span>
@@ -59,17 +71,20 @@ content="Contact information for Attorney Huang Yi-Wei — Chung Chin Law Firm's
       <span>Fax</span>
       <span>(02) 2508-0826</span>
     </div>
-<div class="contact-row">
-  <span>Address</span>
-  <span>
-    12F., No. 111, Sec. 2, Nanjing E. Rd., Zhongshan Dist., Taipei City 104475, Taiwan<br>
-    <span class="appointment-note">(By appointment only)</span>
-  </span>
+    <div class="contact-row">
+      <span>Address</span>
+      <span>
+        12F., No. 111, Sec. 2, Nanjing E. Rd., Zhongshan Dist., Taipei City 104475, Taiwan<br>
+        <span class="appointment-note">(By appointment only)</span>
+      </span>
     </div>
+  </div>
 </section>
+
 <footer>
   <p>© 2026 Huang YiWei Attorney</p>
 </footer>
+
 <script src="js/app.js"></script>
 </body>
 </html>
