@@ -778,8 +778,8 @@ button{
 .cards{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:30px;
-  max-width:1200px;
+  gap:20px;
+  max-width:1400px;
   margin:auto;
 }
 
