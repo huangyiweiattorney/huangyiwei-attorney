@@ -1159,111 +1159,77 @@ footer{
     gap:4px;
   }
 }
+
 /* =========================================================
-   LANGUAGE DROPDOWN
+   LANGUAGE DROPDOWN (Updated for HTML consistency)
    ========================================================= */
 
-.lang-dropdown{
-  position:relative;
+.lang-dropdown {
+    position: relative;
+    display: inline-block;
 }
 
-.lang-toggle{
-  display:flex;
-  align-items:center;
-  gap:6px;
-  color:white;
-  font-weight:500;
-  font-size:15px;
-  letter-spacing:.02em;
-  background:none;
-  border:none;
-  padding:4px 0;
-  cursor:pointer;
-  transition:color .3s;
+.lang-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--white);
+    font-weight: 500;
+    font-size: 15px;
+    padding: 4px 0;
+    letter-spacing: .02em;
+    transition: color .3s;
 }
 
-.lang-toggle:hover{
-  color:var(--gold-light);
+.lang-btn:hover {
+    color: var(--gold-light);
 }
 
-.lang-toggle::after{
-  content:"▾";
-  font-size:11px;
-  color:var(--gold-light);
-  transition:transform .3s var(--ease);
+.lang-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--navy-deep);
+    min-width: 120px;
+    box-shadow: 0 20px 40px rgba(0,0,0,.35);
+    border: 1px solid rgba(199,165,101,.25);
+    border-radius: 6px;
+    z-index: 1001;
+    overflow: hidden;
 }
 
-.lang-dropdown.open .lang-toggle::after{
-  transform:rotate(180deg);
+.lang-content a {
+    color: rgba(255,255,255,.85);
+    padding: 12px 20px;
+    display: block;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background .25s, color .25s, padding-left .25s;
 }
 
-.lang-menu{
-  position:absolute;
-  top:calc(100% + 18px);
-  right:0;
-  min-width:140px;
-  background:var(--navy-deep);
-  border:1px solid rgba(199,165,101,.25);
-  border-radius:6px;
-  list-style:none;
-  padding:8px 0;
-  box-shadow:0 20px 40px rgba(0,0,0,.35);
-  opacity:0;
-  visibility:hidden;
-  transform:translateY(8px);
-  transition:opacity .3s var(--ease), transform .3s var(--ease), visibility .3s;
-  z-index:1001;
+.lang-content a:hover {
+    background: rgba(199,165,101,.1);
+    color: var(--gold-light);
+    padding-left: 26px;
 }
 
-.lang-dropdown.open .lang-menu{
-  opacity:1;
-  visibility:visible;
-  transform:translateY(0);
+/* Support for hover on desktop and tap on mobile touch screens */
+.lang-dropdown:hover .lang-content,
+.lang-dropdown:focus-within .lang-content {
+    display: block;
 }
 
-.lang-menu li a{
-  display:block;
-  padding:10px 20px;
-  color:rgba(255,255,255,.85);
-  font-size:14px;
-  transition:background .25s, color .25s, padding-left .25s;
-}
-
-.lang-menu li a:hover{
-  background:rgba(199,165,101,.1);
-  color:var(--gold-light);
-  padding-left:26px;
-}
-
-.lang-menu li a.active{
-  color:var(--gold-light);
-  font-weight:600;
-}
-
-/* Mobile: dropdown becomes inline list inside the slide-out menu */
-@media(max-width:768px){
-  .lang-dropdown{
-    width:100%;
-  }
-  .lang-toggle{
-    font-size:19px;
-  }
-  .lang-menu{
-    position:static;
-    opacity:1;
-    visibility:visible;
-    transform:none;
-    background:none;
-    border:none;
-    box-shadow:none;
-    padding:16px 0 0 0;
-    display:none;
-  }
-  .lang-dropdown.open .lang-menu{
-    display:block;
-  }
-  .lang-menu li a{
-    padding:10px 0;
-    font-size:16px;
-  }
+/* Mobile Adjustment to merge seamlessly with the side menu */
+@media (max-width: 768px) {
+    .lang-content {
+        position: static;
+        background: none;
+        border: none;
+        box-shadow: none;
+    }
+    .lang-content a {
+        padding: 10px 0;
+        font-size: 16px;
+    }
 }
