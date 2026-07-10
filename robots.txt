@@ -1,5 +1,4 @@
 User-agent: *
-
 Allow: /
 
-Sitemap: https://www.HuangYiWei.com/sitemap.xml
+Sitemap: https://www.huangyiwei.com/sitemap.xml
