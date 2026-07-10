@@ -1,54 +1,57 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<link rel="icon" type="image/png" href="favicon.png">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>黃義偉律師｜Language Selection</title>
-<link rel="stylesheet" href="css/style.css">
-<style>
-    .lang-selector-section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 60vh;
-        text-align: center;
-        padding: 50px 20px;
-    }
-    .lang-buttons { margin-top: 30px; display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
-    .btn-lang { padding: 15px 30px; font-size: 1.2rem; cursor: pointer; text-decoration: none; border: 1px solid #333; color: #333; transition: 0.3s; }
-    .btn-lang:hover { background: #333; color: #fff; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黃義偉律師｜Huang YiWei Attorney</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .lang-selector-section {
+            display: flex; flex-direction: column; align-items: center; 
+            justify-content: center; min-height: 80vh; text-align: center;
+        }
+        .lang-buttons { margin-top: 30px; display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+        .btn-lang { padding: 15px 30px; font-size: 1.2rem; cursor: pointer; text-decoration: none; 
+                    border: 1px solid #333; color: #333; transition: 0.3s; }
+        .btn-lang:hover { background: #333; color: #fff; }
+    </style>
 </head>
 <body>
 
-<nav class="navbar">
-  <a href="index.html" class="logo"><img src="assets/logo.png" alt="黃義偉律師"></a>
-</nav>
-
-<header class="hero">
-  <div class="lang-selector-section">
-    <h1>Welcome to Huang YiWei Attorney</h1>
-    <p>Please select your preferred language / 請選擇您的語言</p>
-    <div class="lang-buttons">
-      <a href="tw-index.html" class="btn-lang" onclick="clearTimeout(timer)">繁體中文</a>
-      <a href="en-index.html" class="btn-lang" onclick="clearTimeout(timer)">English</a>
-      <a href="jp-index.html" class="btn-lang" onclick="clearTimeout(timer)">日本語</a>
-      <a href="kr-index.html" class="btn-lang" onclick="clearTimeout(timer)">한국어</a>
+    <!-- Language Selection Interface -->
+    <div class="lang-selector-section">
+        <h1>Welcome / 歡迎</h1>
+        <p>Please select your language / 請選擇您的語言</p>
+        <div class="lang-buttons">
+            <a href="tw-index.html" class="btn-lang" onclick="clearTimeout(timer)">繁體中文</a>
+            <a href="en-index.html" class="btn-lang" onclick="clearTimeout(timer)">English</a>
+            <a href="jp-index.html" class="btn-lang" onclick="clearTimeout(timer)">日本語</a>
+            <a href="kr-index.html" class="btn-lang" onclick="clearTimeout(timer)">한국어</a>
+        </div>
+        
+        <!-- Counter Display -->
+        <div style="margin-top: 50px; font-size:0.9rem; color:#aaa;">
+            Visitors: <span id="counter-display">-----</span>
+        </div>
     </div>
-  </div>
-</header>
 
-<footer>
-  <p>© 2026 Huang YiWei Attorney</p>
-</footer>
+    <!-- Redirect Script -->
+    <script>
+        const timer = setTimeout(() => {
+            window.location.href = 'tw-index.html';
+        }, 5000);
+    </script>
 
-<script>
-  // Redirect to Chinese after 5 seconds
-  const timer = setTimeout(() => {
-    window.location.href = 'tw-index.html';
-  }, 5000);
-</script>
+    <!-- Firebase Counter Script -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getDatabase, ref, get, set, runTransaction } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+        
+        const firebaseConfig = { /* Your config here */ };
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        
+        // ... (Include your existing counting logic here)
+    </script>
 </body>
 </html>
