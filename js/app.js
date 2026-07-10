@@ -85,3 +85,38 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+/* =========================================================
+   LANGUAGE DROPDOWN LOGIC
+   ========================================================= */
+
+document.addEventListener('DOMContentLoaded', function () {
+  const langDropdown = document.querySelector('.lang-dropdown');
+  if (!langDropdown) return;
+
+  const langToggle = langDropdown.querySelector('.lang-toggle');
+
+  langToggle.addEventListener('click', function (e) {
+    e.stopPropagation();
+    langDropdown.classList.toggle('open');
+    langToggle.setAttribute(
+      'aria-expanded',
+      langDropdown.classList.contains('open') ? 'true' : 'false'
+    );
+  });
+
+  // Close dropdown when clicking anywhere outside it
+  document.addEventListener('click', function (e) {
+    if (!langDropdown.contains(e.target)) {
+      langDropdown.classList.remove('open');
+      langToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Close dropdown when pressing Escape
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      langDropdown.classList.remove('open');
+      langToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+});
