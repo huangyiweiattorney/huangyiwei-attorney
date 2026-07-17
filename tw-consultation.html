@@ -11,13 +11,19 @@
 <meta property="og:image" content="assets/huangyiwei-background.jpg">
 <link rel="stylesheet" href="css/style.css">
 <style>
-    /* 語言下拉選單樣式 */
-    .lang-dropdown { position: relative; display: inline-block; }
-    .lang-btn { background: none; border: none; cursor: pointer; color: #333; font-weight: bold; padding: 10px; }
-    .lang-content { display: none; position: absolute; background-color: #fff; min-width: 120px; box-shadow: 0px 8px 16px rgba(0,0,0,0.2); z-index: 10; border-radius: 4px; }
-    .lang-content a { color: #333; padding: 12px 16px; display: block; text-decoration: none; }
-    .lang-content a:hover { background-color: #f1f1f1; }
-    .lang-dropdown:hover .lang-content { display: block; }
+  .lang-dropdown { position: relative; display: inline-block; }
+  .lang-btn { background: none; border: none; cursor: pointer; color: white; font-weight: 500; font-size: 15px; padding: 4px 0; letter-spacing: .02em; }
+  .lang-content { display: none; position: absolute; right: 0; background-color: #081729; min-width: 140px; box-shadow: 0px 8px 16px rgba(0,0,0,0.3); z-index: 10; border-radius: 4px; border: 1px solid rgba(199,165,101,.2); }
+  .lang-content a { color: rgba(255,255,255,.85); padding: 12px 16px; display: block; text-decoration: none; font-size: 14px; transition: color .2s, background .2s; }
+  .lang-content a:hover { background-color: rgba(199,165,101,.1); color: #C7A565; }
+  .lang-dropdown:hover .lang-content { display: block; }
+
+  .consult-card .btn-primary{
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 28px;
+  }
 </style>
 </head>
 <body>
@@ -31,13 +37,13 @@
     <li><a href="tw-consultation.html">預約諮詢</a></li>
     <li><a href="tw-contact.html">聯絡資訊</a></li>
     <li class="lang-dropdown">
-        <button class="lang-btn">語言 ▼</button>
-        <div class="lang-content">
-            <a href="tw-consultation.html">繁體中文</a>
-            <a href="en-consultation.html">English</a>
-            <a href="jp-consultation.html">日本語</a>
-            <a href="kr-consultation.html">한국어</a>
-        </div>
+      <button class="lang-btn">語言 ▼</button>
+      <div class="lang-content">
+        <a href="tw-consultation.html">繁體中文</a>
+        <a href="en-consultation.html">English</a>
+        <a href="jp-consultation.html">日本語</a>
+        <a href="kr-consultation.html">한국어</a>
+      </div>
     </li>
   </ul>
 
@@ -64,6 +70,7 @@
 
 <section id="consultation">
   <div class="consultation-grid">
+
     <div class="consult-card">
       <h3>免費電話初談</h3>
       <p>適合初步了解案件方向與法律問題<br><br>
@@ -71,7 +78,7 @@
         ． 釐清法律問題方向<br>
         ． 提供基本法律建議<br>
         ． 評估後續委任與否</p>
-      <a href="https://forms.gle/cbgkD7QJq9UtLmmd7" target="_blank" rel="noopener" class="btn-primary">立即預約</a>
+      <a href="https://tally.so/r/XxkZZz" target="_blank" rel="noopener" class="btn-primary">立即預約</a>
     </div>
 
     <div class="consult-card">
@@ -81,7 +88,7 @@
         ． 評估法律風險爭點<br>
         ． 即時檢視相關資料<br>
         ． 提供具體處理建議</p>
-      <a href="https://forms.gle/L7K8EpmYsjQCeATu9" target="_blank" rel="noopener" class="btn-primary">立即預約</a>
+      <a href="https://tally.so/r/gD1RjP" target="_blank" rel="noopener" class="btn-primary">立即預約</a>
     </div>
 
     <div class="consult-card">
@@ -91,13 +98,14 @@
         ． 詳細討論文件證據<br>
         ． 擬定處理策略方向<br>
         ． 規劃後續委任事宜</p>
-      <a href="https://forms.gle/9M7NJWi3KcEdr5Ym7" target="_blank" rel="noopener" class="btn-primary">立即預約</a>
+      <a href="https://tally.so/r/kd1Vdo" target="_blank" rel="noopener" class="btn-primary">立即預約</a>
     </div>
+
   </div>
 </section>
 
 <footer>
-  <p>© 2026 All Rights Reserved. 
+  <p>© 2026 All Rights Reserved.</p>
   <p>Huang YiWei Attorney | Professional Legal Services</p>
 </footer>
 
